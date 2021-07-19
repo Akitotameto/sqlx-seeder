@@ -1,0 +1,13 @@
+[package]
+name = "sqlx-seeder"
+version = "0.1.0"
+edition = "2018"
+description = "seederの作成"
+license = "MIT"
+documentation = "https://docs.rs/sqlx_seeder/"
+
+[[bin]]
+name = "seeder"
+path = "src/bin/seeder.rs"
+
+[dependencies]
