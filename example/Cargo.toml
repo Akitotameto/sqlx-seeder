@@ -1,11 +1,11 @@
 [package]
-name = "sqlx-seeder"
+name = "sqlx-seeder-example"
 version = "0.1.0"
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-sqlx-seeder = { version = "0.1.0", path = "..", default-features = false }
+sqlx-seeder = { version = "0.1.2", path = "..", default-features = false }
 sqlx = {version = "0.5.5", features = ["runtime-tokio-native-tls", "uuid", "mysql", "chrono"]}
 sqlx-core = { version = "0.5.5", default-features=false, features = ["mysql", "uuid", "bigdecimal", "chrono"] }

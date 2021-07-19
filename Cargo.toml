@@ -1,13 +1,13 @@
 [package]
 name = "sqlx-seeder"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2018"
 description = "seederの作成"
 license = "MIT"
 documentation = "https://docs.rs/sqlx_seeder/"
 
 [[bin]]
-name = "seeder"
+name = "sqlx-seeder run"
 path = "src/bin/seeder.rs"
 
 [dependencies]
