@@ -1,14 +1,10 @@
-// use rust_seeder::lib_hello;
-
-// fn main() {
-//     lib_hello();
-// }
-
+use sqlx::mysql::MySqlPool;
 use std::fs;
 use std::io;
 use std::env;
 use std::path::{Path};
-use std::process::Command;
+
+const SEEDS_FOLDER: &str = "seeds";
 
 fn read_dir<P: AsRef<Path>>(path: P) -> io::Result<Vec<String>> {
   Ok(fs::read_dir(path)?
@@ -24,9 +20,23 @@ fn read_dir<P: AsRef<Path>>(path: P) -> io::Result<Vec<String>> {
       .collect())
 }
 
-fn main() {
+#[tokio::main]
+async fn main() -> anyhow::Result<()> {
+  let pool = MySqlPool::connect(&env::var("DATABASE_URL")?).await?;
+  // load_seeder(&pool).await?;
+  println!("seeder complete");
+  Ok(())
+}
+
+async fn load_seeder(pool: &MySqlPool) -> anyhow::Result<()> {
   let path = env::current_dir().unwrap();
-  println!("starting dir: {:?}", path.display());
-  let format_migrate = format!("{}/seeds", path.display());
-  read_dir(format_migrate);
+  let format_migrate = format!("{}/{}", path.display(), SEEDS_FOLDER);
+  let entries = read_dir(format_migrate);
+  for e in entries {
+    for i in e.iter() {
+        let sqlfile = concat!("{}/{}", SEEDS_FOLDER, i);
+        sqlx::query_file!(sqlfile).execute(pool).await?;
+    }
+  }
+  Ok(())
 }

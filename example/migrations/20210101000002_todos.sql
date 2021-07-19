@@ -1,0 +1,4 @@
+CREATE TABLE todos (
+  id VARCHAR(64) PRIMARY KEY,
+  name VARCHAR(64) NOT NULL
+);
