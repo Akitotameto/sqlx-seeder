@@ -7,7 +7,7 @@ license = "MIT"
 documentation = "https://docs.rs/sqlx_seeder/"
 
 [[bin]]
-name = "sqlx-seeder run"
+name = "sqlx-seeder:seeder"
 path = "src/bin/seeder.rs"
 
 [dependencies]
