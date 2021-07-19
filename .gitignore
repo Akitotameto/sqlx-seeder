@@ -1,4 +1,5 @@
 /target
+/sqlx-seeder-cli/target
 /example/target
 Cargo.lock
 .env
