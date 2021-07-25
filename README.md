@@ -1,30 +1,30 @@
 # sqlx-seeder
 
-## 説明
+## Description
 
-- Rustの`sqlx`というクレートに`seeder`コマンドが存在していなかったので作成してみました。
-- SQLファイルを読み込んでテストデータを作成が可能。
+- The `seeder` command didn't exist in Rust's` sqlx` crate, so I created it.
+- It is possible to read SQL files and create test data.
 
-## インストール
+## Install
 
-- 下記のコマンドでクレートをインストールします。
+- Install the crate with the following command.
 
 ```
 & cargo install sqlx-seeder
 ```
 
-## コマンド
+## Command
 
-- 下記のコマンドでseedsディレクトリ内のSQLファイルを読み込んでテストデータを作成することができます。
+- You can create test data by reading the SQL file in the seeds directory with the following command.
 
 ```
 $ sqlx seeder run
 ```
 
-## 関数
+## Method
 
-- `cargo.toml`に`sqlx-seeder = "0.1.0"`と追記すると`lib.rs`の関数を使用することができます。
-※バージョンが更新されている場合がありますので[こちら](https://crates.io/crates/sqlx-seeder)で確認していただいてから追記をお願いいたします。
+- You can use the function of `lib.rs` by adding` sqlx-seeder = "0.1.0" `to` cargo.toml`.
+* The version may have been updated, so please check [here](https://crates.io/crates/sqlx-seeder) before adding.
 
 ### Examples
 
